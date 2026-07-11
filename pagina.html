@@ -14,12 +14,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arma Comunicații și Informatică - Armata Română</title>
     <link rel="stylesheet" href="style.css">
+       <script>
+    // Încercăm să citim rolul din ambele memorii
+    var rolSesiune = sessionStorage.getItem("role");
+    var rolLocal = null;
+    
+    try {
+        rolLocal = localStorage.getItem("role");
+    } catch(e) { /* Siguranță pentru browsere ultra-stricte */ }
 
-    <script>
-        if (!localStorage.getItem("role")) {
-            window.location.href = "index.html";
-        }
-    </script>
+    // Dacă nu găsește rolul în nicio memorie, înseamnă că utilizatorul nu s-a logat
+    if (!rolSesiune && !rolLocal) {
+        window.location.href = "index.html";
+    }
+</script>
 </head>
 <body>
 

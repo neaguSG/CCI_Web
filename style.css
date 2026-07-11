@@ -1,0 +1,224 @@
+/* style.css - Tematică Militară (Comunicații și Informatică) */
+
+:root {
+    --militar-dark: #1E251C;    /* Verde foarte închis */
+    --militar-oliv: #4B5340;    /* Verde oliv militar */
+    --militar-accent: #8B5A2B;  /* Maro pământiu / Accent */
+    --militar-light: #F4F6F4;   /* Gri deschis */
+    --text-light: #FFFFFF;
+    --text-dark: #222222;
+}
+
+/* Resetare de bază și box-sizing corect */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--militar-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Header-ul principal */
+header {
+    background-color: var(--militar-dark);
+    color: var(--text-light);
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-bottom: 4px solid var(--militar-accent);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+header p {
+    margin: 8px 0 0 0;
+    color: #A9B3A0;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Meniul de Navigare */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--militar-oliv);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: var(--text-light);
+    padding: 14px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--militar-dark);
+    color: #00FF00; /* Un accent discret de terminal cyber la hover */
+}
+
+/* Banner Central Hero */
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 1px solid var(--militar-oliv);
+}
+
+.hero-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-banner p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #E0E4DD;
+}
+
+/* Container de Conținut */
+.container {
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+
+/* Secțiuni din pagină */
+section {
+    margin-bottom: 45px;
+}
+
+section h2 {
+    color: var(--militar-dark);
+    border-bottom: 2px solid var(--militar-oliv);
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* Sistemul Grid pentru Carduri */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.card {
+    background: var(--militar-light);
+    padding: 22px;
+    border-left: 5px solid var(--militar-oliv);
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 1px solid rgba(0,0,0,0.03);
+    border-right: 1px solid rgba(0,0,0,0.03);
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    border-left-color: var(--militar-accent);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--militar-dark);
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #444444;
+}
+
+/* Consolă Monitorizare Rețea (Stil Terminal) */
+.status-terminal {
+    background-color: #050505;
+    color: #00FF00;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 6px;
+    margin-top: 20px;
+    box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.25), 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #1a3a1a;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* Subliniere text selectat în consolă */
+.status-terminal br {
+    margin-bottom: 4px;
+}
+
+/* Subsol (Footer) */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: var(--militar-dark);
+    color: #A9B3A0;
+    margin-top: 60px;
+    font-size: 0.85rem;
+    border-top: 4px solid var(--militar-accent);
+    letter-spacing: 0.5px;
+}
+
+/* Adaptabilitate pentru Dispozitive Mobile (Media Queries) */
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav a {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    nav a:last-child {
+        border-bottom: none;
+    }
+    
+    .hero-banner {
+        padding: 50px 15px;
+    }
+    
+    .hero-banner h2 {
+        font-size: 1.4rem;
+    }
+    
+    .container {
+        margin: 15px;
+        padding: 15px;
+    }
+}

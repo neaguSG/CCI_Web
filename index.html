@@ -21,15 +21,19 @@
     </div>
 
     <script>
-        function checkLogin() {
+        function checkLogin(event) {
+            if (event) event.preventDefault();
+            
             var u = document.getElementById("username").value;
             var p = document.getElementById("password").value;
 
             if (u === "admin" && p === "admin0111") {
                 localStorage.setItem("role", "admin");
+                alert("Autentificare reușită! Se încarcă sistemul...");
                 window.location.href = "index.html";
             } else if (u === "user" && p === "user123") {
                 localStorage.setItem("role", "user");
+                alert("Autentificare reușită! Se încarcă sistemul...");
                 window.location.href = "index.html";
             } else {
                 document.getElementById("eroare").innerText = "Acces Respins: Date incorecte.";

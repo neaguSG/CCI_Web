@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Autentificare - Sistem Militar</title>
+    <style>
+        body { background-color: #1E251C; color: #00FF00; font-family: monospace; text-align: center; padding-top: 100px; }
+        .login-box { border: 1px solid #00FF00; display: inline-block; padding: 20px; border-radius: 5px; background: black; }
+        input { display: block; margin: 10px auto; padding: 5px; background: #222; color: #00FF00; border: 1px solid #00FF00; }
+        button { background: #4B5340; color: white; border: none; padding: 8px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>CONECTARE SISTEM TACTIC</h2>
+        <input type="text" id="username" placeholder="Utilizator">
+        <input type="password" id="password" placeholder="Parolă">
+        <button onclick="checkLogin()">Acces</button>
+        <p id="eroare" style="color: red;"></p>
+    </div>
+
+    <script>
+        function checkLogin() {
+            var u = document.getElementById("username").value;
+            var p = document.getElementById("password").value;
+
+            if (u === "admin" && p === "admin0111") {
+                localStorage.setItem("role", "admin");
+                window.location.href = "index.html";
+            } else if (u === "user" && p === "user123") {
+                localStorage.setItem("role", "user");
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("eroare").innerText = "Acces Respins: Date incorecte.";
+            }
+        }
+    </script>
+</body>
+</html>

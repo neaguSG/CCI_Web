@@ -64,13 +64,11 @@
 </head>
 <body>
 
-    <!-- Folosim un DIV simplu, fără taguri <form> care să provoace refresh-uri -->
     <div class="login-box">
         <h2>CONECTARE SISTEM TACTIC</h2>
         <input type="text" id="username" placeholder="Utilizator" autocomplete="off">
         <input type="password" id="password" placeholder="Parolă">
         
-        <!-- type="button" blochează definitiv comportamentul de submit al browserului -->
         <button type="button" onclick="checkLogin()">Acces Sistem</button>
         
         <p id="eroare"></p>
@@ -82,10 +80,9 @@
             var pass = document.getElementById("password").value.trim();
 
             if (user === "admin" && pass === "admin0111") {
-                // Forțăm redirecționarea directă
-                window.location.href = "main.html";
+                window.location.href = "pagina.html";
             } else if (user === "user" && pass === "user123") {
-                window.location.href = "main.html";
+                window.location.href = "pagina.html";
             } else {
                 document.getElementById("eroare").innerText = "ACCES RESPINS: Date incorecte.";
             }

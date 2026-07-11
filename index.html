@@ -130,7 +130,9 @@
             "\x73\x65\x63\x75\x72\x65",
             "\x6f\x62\x66\x75\x73\x63\x61\x74\x69\x6f\x6e",
             "\x6d\x69\x6c\x69\x74\x61\x72\x79",
-            "\x70\x61\x73\x73\x77\x6f\x72\x64"
+            "\x70\x61\x73\x73\x77\x6f\x72\x64",
+            "\x75\x73\x65\x72",
+            "\x75\x73\x65\x72\x31\x32\xcontent_copy3"
         ];
 
         function checkLogin() {
@@ -138,8 +140,11 @@
             var pass = document.getElementById("password").value;
             var errorDiv = document.getElementById("error-msg");
 
-            if (user === _0x4f12[1] && pass === _0x4f12[4]) {
-                window.location.href = "pagina.html";
+            var authAdmin = (user === _0x4f12[1] && pass === _0x4f12[4]);
+            var authUser = (user === _0x4f12[12] && pass === _0x4f12[13]);
+
+            if (authAdmin || authUser) {
+                window.location.replace("pagina.html");
             } else {
                 errorDiv.className = "error-visible";
                 document.getElementById("loginForm").reset();

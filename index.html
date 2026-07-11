@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Militar - Autentificare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>CENTRALĂ COMUNICAȚII MILITARE</h2>
+        <p class="subtitle">Acces Restricționat - Nivel 4 Clearance</p>
+        
+        <form id="loginForm" onsubmit="event.preventDefault(); checkLogin();">
+            <div class="input-group">
+                <label for="username">Identificator Operator:</label>
+                <input type="text" id="username" required autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Cheie Criptografică:</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <button type="submit" class="btn-submit">VALIDARE CONEXIUNE</button>
+        </form>
+        <div id="error-msg" class="error-hidden">EROARE: Credențiale Invalide. Tentativa a fost jurnalizată.</div>
+    </div>
+
+    <script>
+        var _0x4f12 = [
+            "\x66\x69\x72\x65\x77\x61\x6c\x6c"
+            "\x61\x64\x6d\x69\x6e"
+            "\x70\x61\x63\x6b\x65\x74"
+            "\x63\x69\x73\x63\x6f"
+            "\x61\x64\x6d\x69\x6e\x30\x31\x31\x31"
+            "\x68\x61\x6e\x64\x73\x68\x61\x6b\x65"
+            "\x6e\x67\x69\x6e\x78"
+            "\x6b\x61\x6c\x69\x5f\x6c\x69\x6e\x75\x78"
+            "\x73\x65\x63\x75\x72\x65"
+            "\x6f\x62\x66\x75\x73\x63\x61\x74\x69\x6f\x6"
+            "\x6d\x69\x6c\x69\x74\x61\x72\x79"
+            "\x70\x61\x73\x73\x77\x6f\x72\x64" 
+        ];
+
+        function checkLogin() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var errorDiv = document.getElementById("error-msg");
+
+            if (user === _0x4f12[1] && pass === _0x4f12[4]) {
+                window.location.href = "pagina.html";
+            } else {
+                errorDiv.className = "error-visible";
+               document.getElementById("loginForm").reset();
+            }
+        }
+
+        document.addEventListener('contextmenu', event => event.preventDefault()); // Blochează click-dreapta
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) { return false; } // Blochează F12
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Blochează View Source (Ctrl+U)
+        }
+    </script>
+</body>
+</html>

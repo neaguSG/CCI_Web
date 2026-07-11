@@ -1,44 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>Autentificare - Sistem Militar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autentificare - Sistem Tactic</title>
     <style>
-        body { background-color: #1E251C; color: #00FF00; font-family: monospace; text-align: center; padding-top: 100px; }
-        .login-box { border: 1px solid #00FF00; display: inline-block; padding: 20px; border-radius: 5px; background: black; }
-        input { display: block; margin: 10px auto; padding: 5px; background: #222; color: #00FF00; border: 1px solid #00FF00; }
-        button { background: #4B5340; color: white; border: none; padding: 8px 15px; cursor: pointer; }
+        body { 
+            background-color: #1E251C; 
+            color: #00FF00; 
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center; 
+            padding-top: 100px;
+            margin: 0;
+        }
+        .login-box { 
+            border: 2px solid #4B5340; 
+            display: inline-block; 
+            padding: 30px; 
+            border-radius: 5px; 
+            background: #050505; 
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+        }
+        h2 { font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 20px; }
+        input { 
+            display: block; 
+            margin: 15px auto; 
+            padding: 10px; 
+            background: #111; 
+            color: #00FF00; 
+            border: 1px solid #4B5340; 
+            font-family: monospace;
+            width: 200px;
+        }
+        input:focus { border-color: #00FF00; outline: none; }
+        button { 
+            background: #4B5340; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: monospace;
+            transition: background 0.3s;
+        }
+        button:hover { background: #8B5A2B; }
+        #eroare { color: #ff3333; font-weight: bold; margin-top: 15px; }
     </style>
 </head>
 <body>
+
+    <!-- Folosim un DIV simplu, fără taguri <form> care să provoace refresh-uri -->
     <div class="login-box">
         <h2>CONECTARE SISTEM TACTIC</h2>
-        <input type="text" id="username" placeholder="Utilizator">
+        <input type="text" id="username" placeholder="Utilizator" autocomplete="off">
         <input type="password" id="password" placeholder="Parolă">
-        <button onclick="checkLogin()">Acces</button>
-        <p id="eroare" style="color: red;"></p>
+        
+        <!-- type="button" blochează definitiv comportamentul de submit al browserului -->
+        <button type="button" onclick="checkLogin()">Acces Sistem</button>
+        
+        <p id="eroare"></p>
     </div>
 
     <script>
-        function checkLogin(event) {
-            if (event) event.preventDefault();
-            
-            var u = document.getElementById("username").value;
-            var p = document.getElementById("password").value;
+        function checkLogin() {
+            var user = document.getElementById("username").value.trim();
+            var pass = document.getElementById("password").value.trim();
 
-            if (u === "admin" && p === "admin0111") {
-                localStorage.setItem("role", "admin");
-                alert("Autentificare reușită! Se încarcă sistemul...");
-                window.location.href = "index.html";
-            } else if (u === "user" && p === "user123") {
-                localStorage.setItem("role", "user");
-                alert("Autentificare reușită! Se încarcă sistemul...");
-                window.location.href = "index.html";
+            if (user === "admin" && pass === "admin0111") {
+                // Forțăm redirecționarea directă
+                window.location.href = "main.html";
+            } else if (user === "user" && pass === "user123") {
+                window.location.href = "main.html";
             } else {
-                document.getElementById("eroare").innerText = "Acces Respins: Date incorecte.";
+                document.getElementById("eroare").innerText = "ACCES RESPINS: Date incorecte.";
             }
         }
     </script>
+
 </body>
 </html>
